@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '03u$15(ixz@g-j%=_oehgygx%gw82zao+4a!f5(w=spco7j66s'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1','conexe.appspot.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -46,6 +46,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -78,36 +79,29 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'fleetingram.wsgi.application'
 
+#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-if os.getenv('GAE_APPLICATION', None):
-    # Running on production App Engine, so connect to Google Cloud SQL using
-    # the unix socket at /cloudsql/<your-cloudsql-connection string>
+ #   DATABASES = {
+ #           'default': {
+ #               'ENGINE': 'django.db.backends.sqlite3',
+ #               'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+ #       }
+ #       }
 
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'USER': 'crincon',
-            'PASSWORD': 'Berseker00',
-            'NAME': 'fleetingramcore',
-            'HOST': '/cloudsql/conexe:us-central1:fleetingramcore',
-        }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'fleetingramdb',
+        'USER': 'crincon',
+        'PASSWORD': 'Berseker00',
+        'HOST': 'localhost',
+        'PORT': '',
     }
-else:
-    # Running locally so connect to either a local MySQL instance or connect to
-    # Cloud SQL via the proxy. To start the proxy via command line:
-    #
-    #     $ cloud_sql_proxy -instances=[INSTANCE_CONNECTION_NAME]=tcp:3306
-    #
-    # See https://cloud.google.com/sql/docs/mysql-connect-proxy
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-    }
+}
+
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -147,11 +141,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-STATICFILES_DIRS = (
-        os.path.join(BASE_DIR, 'static'), 
-    )
+#STATICFILES_DIRS = (
+#        os.path.join(BASE_DIR, 'static'), 
+#    )
 
 STATICFILES_FINDERS = [
 
