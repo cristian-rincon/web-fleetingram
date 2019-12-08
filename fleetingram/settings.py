@@ -96,11 +96,10 @@ WSGI_APPLICATION = 'fleetingram.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'fleetingramdb',
+        'NAME': 'fleetingramdb1',
         'USER': 'crincon',
         'PASSWORD': 'Berseker00',
-        'HOST': 'localhost',
-        'PORT': '',
+        'PORT': '5436',
     }
 }
 
