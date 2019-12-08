@@ -10,6 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
+import dj_database_url
+
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -23,9 +25,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '03u$15(ixz@g-j%=_oehgygx%gw82zao+4a!f5(w=spco7j66s'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['fleetingram.herokuapp.com','127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1','.herokuapp.com',]
 
 
 # Application definition
@@ -93,15 +95,18 @@ WSGI_APPLICATION = 'fleetingram.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'fleetingramdb',
         'USER': 'crincon',
         'PASSWORD': 'Berseker00',
-        'HOST': '*',
+        'HOST': 'localhost',
         'PORT': '',
     }
 }
 
+
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
