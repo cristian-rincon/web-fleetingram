@@ -97,7 +97,7 @@ DATABASES = {
         'NAME': 'fleetingramdb',
         'USER': 'crincon',
         'PASSWORD': 'Berseker00',
-        'HOST': '',
+        'HOST': '*',
         'PORT': '',
     }
 }
