@@ -95,7 +95,7 @@ WSGI_APPLICATION = 'fleetingram.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'fleetingramdb',
         'USER': 'crincon',
         'PASSWORD': 'Berseker00',
