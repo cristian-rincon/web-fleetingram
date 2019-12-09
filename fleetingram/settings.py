@@ -95,14 +95,19 @@ WSGI_APPLICATION = 'fleetingram.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'fleetingramdb1',
         'USER': 'crincon',
         'PASSWORD': 'Berseker00',
-        'PORT': '5436',
+        'PORT': '5432',
     }
 }
 
+DATABASES['default']['HOST'] = '/cloudsql/conexe:us-central1:fleetingramdb'
+if os.getenv('GAE_INSTANCE'):
+    pass
+else:
+    DATABASES['default']['HOST'] = '127.0.0.1'
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
