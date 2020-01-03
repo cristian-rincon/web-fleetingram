@@ -6,7 +6,7 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-whitenoise = "*"
+whitenoise = {extras = ["brotli"],version = "*"}
 django = "*"
 gunicorn = "*"
 pillow = "*"
