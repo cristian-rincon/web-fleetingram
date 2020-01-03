@@ -2,13 +2,13 @@
 
   
   
-  ![fleetingram logo](http://conexe.appspot.com/static/img/instagram.png)
+  ![fleetingram logo](http://fleetingram.herokuapp.com/static/img/instagram.png)
 
 MVP de aplicación social basada en instagram - web.
 
 ---
 
-- Desplegado en google app engine en la dirección : conexe.appspot.com
+- Desplegado en heroku en la dirección : fleetingram.herokuapp.com
 
   
   
@@ -20,15 +20,13 @@ MVP de aplicación social basada en instagram - web.
 
 - Django
 
+- Heroku
+
 - PostgreSql
 
-- Google App Engine
-
-- Google Cloud Sql
-
-- Google Cloud Storage
-
   
   
 
-Mayor información: cristian.rincon@conexe.co
+Mayor información: cristian.o.rincon.b@gmail.com
+
+2020
