@@ -6,15 +6,11 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-whitenoise = {extras = ["brotli"],version = "*"}
 django = "*"
+django-heroku = "*"
 gunicorn = "*"
 pillow = "*"
-psycopg2 = "*"
-psycopg2-binary = "*"
-dj-database-url = "*"
 python-dotenv = "*"
-django-heroku = "*"
 
 [requires]
 python_version = "3.7"
