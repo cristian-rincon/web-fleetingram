@@ -13,7 +13,6 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 
 import os
-import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -92,7 +91,6 @@ WSGI_APPLICATION = 'fleetingram.wsgi.application'
 #       }
 #       }
 
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -103,16 +101,11 @@ DATABASES = {
     }
 }
 
-
-prod_db  =  dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(prod_db)
-
-
-#DATABASES['default']['HOST'] = '/cloudsql/conexe:us-central1:fleetingramdb'
-#if os.getenv('GAE_INSTANCE'):
-#    pass
-#else:
-#    DATABASES['default']['HOST'] = '127.0.0.1'
+DATABASES['default']['HOST'] = '/cloudsql/conexe:us-central1:fleetingramdb'
+if os.getenv('GAE_INSTANCE'):
+    pass
+else:
+    DATABASES['default']['HOST'] = '127.0.0.1'
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -159,7 +152,7 @@ STATICFILES_DIRS = (
     )
 
 #  Add configuration for static files storage using whitenoise
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 STATICFILES_FINDERS = [
 
@@ -176,3 +169,7 @@ MEDIA_URL = '/media/'
 LOGIN_URL = '/users/login/'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = LOGIN_URL
+
+# Configure Django App for Heroku.
+import django_heroku
+django_heroku.settings(locals())
