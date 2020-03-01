@@ -1,0 +1,6 @@
+django
+django-heroku
+gunicorn
+pillow
+python-dotenv
+psycopg2-binary
