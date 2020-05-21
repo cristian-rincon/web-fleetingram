@@ -31,6 +31,6 @@ Una vez has creado tu proyecto, es momento de realizar la creación de la base d
 
 Si deseas ver el resultado final, puedes ingresar a : conexe.appspot.com
 
-Si tienes alguna duda puntual te invito a dar follow en mi perfil de github y también me puedes escribir a : cristian.rincon@conexe.co
+Si tienes alguna duda puntual te invito a dar follow en mi perfil de github y también me puedes escribir a : cristian.o.rincon.b@gmail.com
 
 Espero haberte ayudado en tu proceso de aprendizaje. Feliz Día
