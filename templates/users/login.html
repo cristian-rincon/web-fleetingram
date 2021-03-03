@@ -16,15 +16,17 @@
     <form method='POST' action='{% url "users:login" %}'>
 
         {% csrf_token %}
-        <div class='form-group'>
+        <div class='mb-3 px-2 row'>
             <input type='text' placeholder='Username' class='form-control' id='username' name='username'>
         </div>
-        <div class='form-group'>
+        <div class='mb-3 px-2 row'>
 
             <input type='password' placeholder='Password' class='form-control' id='password' name='password'>
         </div>
-        <button type="submit" name="" id="" class="btn btn-primary mt-5 btn-block">Sign in</button>
 
+        <div class="d-grid">
+          <button type="submit" name="" id="" class="btn btn-primary mt-2 btn-block">Sign in</button>
+        </div>
     </form>
 
     <p class="mt-4">

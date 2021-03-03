@@ -5,6 +5,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import views as auth_views
+from django.db.models import Count
 from django.shortcuts import render, redirect
 from django.urls import reverse,reverse_lazy
 from django.views.generic import DetailView, FormView, UpdateView
@@ -19,7 +20,7 @@ from users.models import Profile
 from users.forms import SignupForm
 
 
-class UserDetailTemplateView(LoginRequiredMixin,DetailView):
+class UserDetailTemplateView(LoginRequiredMixin, DetailView):
     """User detail view."""
 
     template_name='users/detail.html'
@@ -28,11 +29,14 @@ class UserDetailTemplateView(LoginRequiredMixin,DetailView):
     queryset = User.objects.all()
     context_object_name = 'user'
 
+
     def get_context_data(self, **kwargs):
         """Add user's posts to context."""
         context = super().get_context_data(**kwargs)
         user = self.get_object()
         context['posts'] = Post.objects.filter(user=user).order_by('-created')
+        context['posts_count'] = len(Post.objects.filter(user=user))
+        print(context)
         return context
 
 

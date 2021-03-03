@@ -44,7 +44,7 @@ class ProfileAdmin(admin.ModelAdmin):
         ('Extra info', {
 
             'fields': (('website', 'phone_number'),
-                       ('biography')
+                       'biography'
                        )
         }),
 

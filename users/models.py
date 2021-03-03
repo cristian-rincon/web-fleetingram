@@ -29,4 +29,3 @@ class Profile(models.Model):
     def __str__(self):
         """Return username"""
         return self.user.username
-
