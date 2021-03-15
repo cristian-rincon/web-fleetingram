@@ -7,10 +7,7 @@
 MVP de aplicación social basada en instagram - web.
 
 ---
-
-- Desplegado en heroku en la dirección : https://bit.ly/3rdSdjG
-
-  
+ 
   
 
 ## Stack utilizado
@@ -37,3 +34,15 @@ Mayor información: cristian.o.rincon.b@gmail.com
 
 1. Tener un bucket de google cloud.
 2. Crear y descargar una cuenta de servicio con permisos para la lectura y escritura en el bucket. Esta credencial debe ir en la carpeta conf/ y se debe llamar credentials.json
+
+
+### Como levantar el servicio con docker en local
+
+Para levantar el servicio se debe usar el comando:
+
+```bash
+docker-compose up --build ## solo la primera vez
+docker-compose up
+```
+
+Luego de esto, ingresa desde tu localhost al puerto 8000. (http://localhost:8000)
